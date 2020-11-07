@@ -1,0 +1,183 @@
+{% extends "templates/basic.html" %}
+{% set active_page = "About" %}
+
+{% block content %}
+
+<!-- Carousel ================================================== -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    {% for i in range(images | count) %}
+    <li data-target="#myCarousel" data-slide-to="{{i}}"{% if i==0 %} class="active"{% endif %}></li>
+    {% endfor %}
+  </ol>
+  <div class="carousel-inner">
+    {% for i in images %}
+    <div class="item{% if i==images[0] %} active{% endif %}">
+      <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:slide {{i}}" alt="loading image">
+      <img src="{{i}}" alt="nice pictures" />
+    </div>
+    {% endfor %}
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div><!-- /.carousel -->
+
+
+<div class="container clearfix mb-20">
+  {% include "templates/globalmessage.html" ignore missing %}
+  {% include "templates/timeline.html" ignore missing %}
+  <h2><span>What is "Cool Stars"?</span></h2>
+   <div class="c12 row">
+     <p>
+    The Cambridge Workshop on Cool Stars, Stellar Systems, and the Sun ("Cool Stars") has been running for 40 years. The first workshop was held in Cambridge, Massachusetts in 1980.
+    Since then, Cool Stars has been held largely biennially, alternating between North America and Europe, where approximately 400 international experts in Low-Mass Stars, Solar Physics, and Exoplanets meet to exchange ideas in a cross-disciplinary and friendly environment.
+     </p>
+   </div>
+
+   <h2><span>General overview of the conference’s format</span></h2>
+    <div class="c12 row">
+      <p>The conference will take place during the week of March 2-4, 2021. We have adopted a virtual format that allows for general discussions of the state of the field while also providing an opportunity for everybody to present their work. Registration will be free of charge. We have selected a time range for the main synchronous activities (including review talks, Q&#38;A, and discussion sessions) that maximizes the number of attendees based on previous meetings. We apologize for not being able to accommodate all different time zones, but all live activities will be recorded and made available afterward for people who cannot join them.</p>
+
+      <p>Daily synchronous sessions via a Zoom webinar. These sessions will be 3 - 4 hours long (with breaks), and will be held from ~17:00 to 20:00/21:00 UTC. The webinars will be recorded, and uploaded to Youtube. These sessions will consist of:</p>
+      <ul class="listing">
+	<li>Invited review talks (about 25 minutes).  Short Q&#38;As using the chair to moderate questions from the chat.</li>
+	<li>Several poster Haiku sessions in between the talks</li>
+	<li>Live contributed talks with Short Q&#38;As</li>
+	<li>Posters which will be eligible for Hakiu*,</li>
+      </ul>
+      
+      <p>A Slack space may be used to host asynchronous discussion during the conference, including questions or topics that could not be covered during the webinars, Q&#38;As for contributed talks or posters, and other general or specific discussions.</p>
+
+      <p>*: haïku (俳句, haiku) is an extremely brief little poem aimed at saying and celebrating the evanescence of things.
+	In the context of the meeting we mean a 1 minute/1 slide presentation of your work.</p>
+      </div>
+       
+  <h2><span>SOC</span></h2>
+  <div class="row c12">
+    <p>To contact the SOC or LOC write
+      to: <a href="mailto:cs20@cfa.harvard.edu">cs20@cfa.harvard.edu</a></p>
+  </div>
+  <div class="row">
+    <div class="c6">
+      <ul class="listing">
+	<li>Silvia Alencar - Federal University of Minas Gerais</li>
+	<li>Myriam Benisty - Institut de Planétologie et d'Astrophysique de Grenoble</li>
+	<li>Jérôme Bouvier - Institut de Planétologie et d'Astrophysique de Grenoble</li>
+	<li>Allan Sacha Brun - CEA Saclay</li>
+	<li>Corinne Charbonnel - Geneva Observatory</li>
+	<li>Marc DeRosa - Lockheed Martin Solar and Astrophysics Laboratory</li>
+	<li>Andrea Dupree - Harvard-Smithsonian Center for Astrophysics</li>
+	<li>Luca Fossati - Austrian Academy of Sciences</li>
+	<li>Laurent Gizon - Max Planck Institute for Solar System Research</li>
+	<li>Gregory Herczeg - KIAA / Peking University</li>
+	<li>Lynne Hillenbrand - California Institute of Technology</li>
+	<li>Miho Janvier - IAS / University of Paris-Sud</li>
+	<li>Moira Jardine - University of Saint Andrews</li>
+      </ul>
+    </div> 
+    <div class="c6">
+      <ul class="listing">
+	<li>Carme Jordi - University of Barcelona</li>
+	<li>Elena Khomenko - Instituto de Astrofísica de Canarias</li>
+	<li>Heidi Korhonen - European Southern Observatory</li>
+	<li>Ágnes Kóspál - Konkoly Observatory</li>
+	<li>Sean Matt - University of Exeter</li>
+	<li>Pascal Petit (LOC chair) - Institut de Recherche en Astrophysique et Planétologie</li>
+	<li>Sofia Randich - INAF / Arcetri Astrophysical Observatory</li>
+	<li>Rachael Roettenbacher - Yale University</li>
+	<li>Alexis Rouillard - Institut de Recherche en Astrophysique et Planétologie</li>
+	<li>Klaus Strassmeier - Leibniz-Institut für Astrophysik Potsdam</li>
+	<li>Takeru Suzuki - University of Tokyo</li>
+	<li>Adriana Valio - Mackenzie Presbyterian University</li>
+	<li>Scott Wolk -(SOC 20.5 co-chair) Harvard-Smithsonian Center for Astrophysics</li>
+      </ul>
+    </div> 
+  </div>
+  <div class="clearfix"></div>
+  <h2><span>LOC</span></h2>
+  <div class="row c12">
+    <p>To contact the SOC or LOC write
+      to: <a href="mailto:cs20@cfa.harvard.edu">cs20@cfa.harvard.edu</a></p>
+  </div>
+  <div class="c12 row">
+    <ul class="listing">
+      <li>Scott Wolk - Harvard-Smithsonian Center for Astrophysics</li>
+      <li>Moritz Günther - MIT</li>
+    </ul>
+  </div>
+  <h2><span>Organizing Institutions</span></h2>
+  <div class="row clearfix sponsor-logo">
+         <div class="c2 img">
+	   <a href="https://www.cfa.harvard.edu">
+             <img src="images/SAO-squarelogo.png" alt="SAO logo">
+	   </a>
+         </div>
+         <div class="c2 img">
+	   <a href="https://www.cfa.harvard.edu">
+             <img src="images/Harvard_University_logo.svg" alt="Harvard logo">
+	   </a>
+         </div>
+	 <div class="c3 img">
+	   <a href="https://www.mit.edu">
+             <img src="images/MIT-logo.png" alt="MIT logo">
+	   </a>
+         </div>
+       </div>
+
+       <h2><span>Code of Conduct</span></h2>
+       <div class="c12 row">
+
+       <p>The Cool Stars 20.5 organizers are committed to making this meeting productive and enjoyable for everyone, regardless of gender, sexual orientation, disability, physical appearance, body size, ethnicity, nationality, or religion. We will not tolerate harassment of participants in any form. Please follow these guidelines, evne if we meet virtually:</p>
+
+	  <ul class="listing">
+	    <li>Behave professionally. Harassment and sexist, racist, or exclusionary comments or jokes are not appropriate. Harassment includes sustained disruption of talks or other events, inappropriate or unwelcome physical contact, sexual attention or innuendo, deliberate intimidation, stalking, and photography or recording of an individual without consent. It also includes offensive comments related to gender, sexual orientation, age, disability, physical appearance, body size, ethnicity, or religion.</li>
+	    <li>All communication should be appropriate for a professional audience of people from many different backgrounds. Sexual language and imagery is not appropriate.</li>
+	    <li>Be kind to others. Do not insult or put down other attendees.</li>
+	   </ul>
+
+	  <p>Participants asked to stop any inappropriate behaviour are expected to comply immediately. Attendees violating these rules may be asked to leave the event at the sole discretion of the organizers.</p>
+
+       <p>This code of conduct was originally designed for an astronomy conference in London, adapted by Andrew Pontzen and Hiranya Peiris from a document by Software Carpentry, which itself derives from original Creative Commons documents by PyCon and Geek Feminism.</p>
+
+       
+       </div>
+       <h2><span>Acknowledgements</span></h2>
+       <div class="c12 row">
+	 <ul class="listing">
+	   <li>Artwork: Kristin Ann Divona</li>
+	   <li>Website template design by Veselka for <a href="http://www.andreasviklund.com">andreasviklund.com</a> </li>
+	   <li>Website development on <a href="https://github.com/coolstars20/websitehalf">github</a>
+	 </ul>
+       </div>
+
+       <h2><span>Previous (and future!) Meetings</span></h2>
+       <div class="c12 row">
+	 <ul class="listing">
+	   <li>CS 21 - <a href="https://coolstars21.github.io/">Toulouse, Fance, summer 2022</a></li>
+	   <li>CS 20 - <a href="http://coolstars20.com/">Boston / Cambridge, USA, July/Aug 2018</a></li>
+	   <li>CS 19 - <a href="http://coolstars19.com/">Uppsala, Sweden, June 2016</a></li>
+	   <li>CS 18 - <a href="http://www2.lowell.edu/workshops/coolstars18/">Flagstaff, AZ, USA, June 2014</a></li>
+	   <li>CS 17 - Barcelona, SPAIN, June 2012</li>
+	   <li>CS 16 - Seattle, WA, USA, August 2010</li>
+	   <li>CS 15 - <a href="http://star-www.st-andrews.ac.uk/coolstars15/">St Andrews, United Kingdom, July 2008</a></li>
+	   <li>CS 14 - <a href="https://irsa.ipac.caltech.edu/data/SPITZER/docs/spitzermission/reportsandproceedings/meetings/coolstars14/">Pasadena, CA, USA, November 2006</a></li>
+	   <li>CS 13 - Hamburg, Germany, July 2004</li>
+	   <li>CS 12 - Boulder, CO, USA, July 2001</li>
+	   <li>CS 11 - Tenerife, Spain, October 1999</li>
+	   <li>CS 10 - Cambridge, MA, USA, 1997</li>
+	   <li>CS 9 - Florence, Italy, 1995</li>
+	   <li>CS 8 - Athens, GA, USA, 1993</li>
+	   <li>CS 7 - Tucson, AZ, USA, 1991</li>
+	   <li>CS 6 - Seattle, WA, USA, 1989</li>
+	   <li>CS 5 - Boulder, CO, USA, 1987</li>
+	   <li>CS 4 - Santa Fe, NM, USA, 1985</li>
+	   <li>CS 3 - Cambridge, MA, USA, 1983</li>
+	   <li>CS 2 - Cambridge, MA, USA, 1981</li>
+	   <li>CS 1.5 - NATO Advanced Study Institute, Bonas, France, 25 Aug - 5 Sep 1980</li>
+	   <li>The original CS (later renamed CS 1) - Cambridge, MA, USA, Jan 1980</li>
+	 </ul>
+       </div>
+</div>
+
+{% endblock content %}

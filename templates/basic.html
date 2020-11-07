@@ -1,0 +1,101 @@
+{% set navigation_bar = [
+    ('index.html', 'About'),
+    ('program.html', 'Program'),
+    ('abstracts.html', 'Abstracts'),
+    ('contributions.html', 'Contributions'),
+] -%}
+{% set active_page = active_page|default('About') -%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700' rel='stylesheet' type='text/css'>
+    <meta name="description" content="Cool Stars 20.5, workshop, conference">
+    <meta name="author" content="CS20.5 LOC">
+    <link rel="shortcut icon" href="favicon.png">
+    <title>About</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="../js/chart.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+
+  </head>
+
+  <body>
+  <div class="sticky">
+    <!-- NAVBAR ================================================== -->
+    <div class="top-bar">
+      <div class="container clearfix">
+	<a href="mailto:cs20@cfa.harvard.edu" target="_top">cs20@cfa.harvard.edu</a>
+        <ul class="social">
+          <li><a href="https://www.facebook.com/groups/1464538487100756/" class="fb"></a></li>
+          <li><a href="https://twitter.com/coolstars20" class="tw"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar navbar-inverse navbar-static-top clearfix" role="navigation">
+            <div class="navbar-header clearfix">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <h1><a class="navbar-brand" href="index.html"></a></h1>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+		{% for href, caption in navigation_bar %}
+		<li><a{% if caption == active_page %} class="active"{% endif %} href="{{ href|e }}">{{ caption|e }}</a></li>
+		{% endfor %}
+               </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    {% block content %}{% endblock %}
+    </div>
+    <!--FOOTER-->
+    <div class="footer">
+      <div class="container clearfix">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2020 <a href="mailto:cs20@cfa.harvard.edu" target="_top">CS20.5 LOC</a></p>
+      </div>
+
+      <div class="container ta-c">
+	
+	<ul class="">
+	  <li class="first leaf"><a href="/advancement" title="Advancement Office">Advancement</a></li>
+<li class="leaf"><a href="/about/contact" title="Directions, Phone Numbers, Mailing Address">Contacts</a></li>
+<li class="leaf"><a href="http://astronomy.fas.harvard.edu/" title="Harvard University Dept. of Astronomy">Dept. of Astronomy</a></li>
+<li class="leaf"><a href="https://www.cfa.harvard.edu/do/index.html" title="Director&#039;s Office Information">Director&#039;s Office</a></li>
+<li class="leaf"><a href="https://www.cfa.harvard.edu/internal/" title="CfA Intranet">Intranet</a></li>
+<li class="leaf"><a href="/content/privacy-statement" title="Privacy Policy Statements">Privacy</a></li>
+<li class="last leaf"><a href="/cfa-resources" title="Resources for different audiences">Resources</a></li>
+</ul>
+      </div>
+      <div class="container ta-c">
+	<p class="footer-center">CENTER FOR ASTROPHYSICS  |  HARVARD &amp; SMITHSONIAN<br />
+60 GARDEN STREET, CAMBRIDGE, MA 02138</p>
+      </div>
+
+    </div>
+
+  </body>
+</html>

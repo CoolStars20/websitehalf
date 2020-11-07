@@ -1,0 +1,34 @@
+{% extends "templates/basic.html" %}
+{% set active_page = "Contributions" %}
+
+{% block content %}
+<script type="text/x-mathjax-config">
+</script>
+
+<div class="container clearfix mt-100 mb-20">
+  {% include "templates/globalmessage.html" ignore missing %}
+
+  <h2><span id="registration">Registration for conference</span></h2>
+  <div class="c12 row">
+    <p>Conference attendance is free.</p>
+    
+  </div>
+
+  <h2><span id="submission">Abstract submission</span></h2>
+  <div class="c12 row">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfONDEIwIP5FkgNVzAKr8J24EYSgIlkftZliG4GSRo7K4qSfg/viewform?embedded=true" width="640" height="2353" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+  </div>
+  <h2><span id="Talks">Talks</span></h2>
+  <div class="c12 row">
+    <p>Instructions for preparing remote talks will be posted here.</p>
+  </div>
+
+  <h2><span id="Posters">Posters and Haikus</span></h2>
+  <div class="c12 row">
+    <p>Instructions will be posted here.</p>  
+  </div>
+</div>
+
+
+{% endblock content %}
