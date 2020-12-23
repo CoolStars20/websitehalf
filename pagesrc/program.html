@@ -4,14 +4,36 @@
 {% block content %}
 
 <div class="container clearfix mt-100 mb-20">
-       {% include "templates/globalmessage.html" ignore missing %}
+  {% include "templates/globalmessage.html" ignore missing %}
+  <h2><span>Topics</span></h2>
+  <div class="c12 row">
+    <p>The following topics will be covered:</p>
+    <ul class="listing">
+      <li>The Sun and the Heliosphere</li>
+      <li>Very low mass stars</li>
+      <li>Post main sequence cool stars</li>
+      <li>Young stars</li>
+      <li>Cool Stars on the main sequence</li>
+      <li>Stellar systems, clusters, and associations</li>
+    </ul>
+  </div>
 
-      <h2><span>Schedule</span></h2>
-      <div class="c12 row">
-	<p>All scheduling information is nominal.</p>
-	<p>Daily synchronous sessions via a Zoom webinar. These sessions will be 3 - 4 hours long (with breaks), and will be held from ~17:00 to 20:00/21:00 UTC. The webinars will be recorded, and uploaded to Youtube.</p>
+  <h2><span>Invited speakers</span></h2>
+  <div class="c12 row">
+    <ul class="listing">
+      <li>Nate Bastian - Liverpool John Moores University</li>
+      <li>Aleida Higginson - Applied Physics Laboratory</li>
+      <li>Justin Kasper - University of Michigan</li>
+      <li>Miguel Montargues- Katholieke Universiteit Leven</li>
+      <li>Eleonora Zari - Max Planck Institute for Astronomy</li>
+    </ul>
 
-</div>
+  
+  <h2><span>Schedule</span></h2>
+  <div class="c12 row">
+    <p>All scheduling information is nominal.</p>
+    <p>Daily synchronous sessions via a Zoom webinar. These sessions will be 3 - 4 hours long (with breaks), and will be held from ~17:00 to 20:00/21:00 UTC. The webinars will be recorded, and uploaded to Youtube.</p>
+  </div>
 </div>
 
 {% endblock content %}
