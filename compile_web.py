@@ -56,7 +56,7 @@ for page in pagelist:
 
 
 # copy several directories verbatim
-for d in ['images', 'css']:
+for d in ['images', 'css', 'js']:
     outdir = os.path.join(args.outpath, d)
     if not os.path.exists(outdir):
         os.makedirs(outdir)
@@ -68,7 +68,7 @@ for d in ['images', 'css']:
 outdir = os.path.join(args.outpath, 'data')
 if not os.path.exists(outdir):
     os.makedirs(outdir)
-#shutil.copy('data/abstracts.json', outdir)
+shutil.copy('data/abstracts.json', outdir)
 
 
 # copy favicons which should live in root directory

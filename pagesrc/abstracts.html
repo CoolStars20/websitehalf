@@ -1,15 +1,105 @@
 
 {% extends "templates/basic.html" %}
+{% import "templates/abstracts_helper.html" as abstracts %}
 {% set active_page = "Abstracts" %}
 
 {% block content %}
-<div class="container clearfix mt-100 mb-20">
-  {% include "templates/globalmessage.html" ignore missing %}
-  {% include "templates/timeline.html" ignore missing %}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],
+processEscapes: true}
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="js/abstractstab.js"></script>
+	
 
-  <h2><span id="registration">Abstracts</span></h2>
-  <div class="c12 row">
-    <p>Accepted abstracts will be posted here.</p>
-  </div>
-</div>
+    <div class="container clearfix mt-100 mb-20">
+      {% include "templates/globalmessage.html" ignore missing %}
+      {% include "templates/timeline.html" ignore missing %}
+      <a name="top"></a>
+      <div class="c12 row">
+	<p>Jump to <a href="#table">table of all proposed oral contributions</a>,
+	  <a href="#talks">proposed talks</a>, or 
+	  <a href="#posters">proposed posters + haiku</a>.
+	</p>
+	
+      </div>
+
+      <a name="table"></a>
+      <h2><span>Proposed contributions</span></h2>
+      <div class="c12 row">
+        <p>Use the table below to view and search abstracts or jump directly
+	  to a listing of all <a href="#talks">talks</a> or <a href="#posters">posters</a>.
+	</p>
+
+	<table id="example" class="display" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Type</th>
+              <th>Author</th>
+              <th>Title</th>
+	      <th>Authorlist</th>
+	      <th>Affiliations</th>
+	      <th>Abstract</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th></th>
+              <th>Type</th>
+              <th>Author</th>
+              <th>Title</th>
+	      <th>Authorlist</th>
+	      <th>Affiliations</th>
+	      <th>Abstract</th>
+            </tr>
+          </tfoot>
+	</table>
+      </div>
+      <a name="talks"></a>
+	{% if talks|count == 0 %}
+      <div class="c12 row">
+	<p>Contributed talks will be listed here after the SOC has reviewed the
+	submitted abstracts.</p>
+      </div>
+	{% else %}
+        <a name="talkson{{ day }}"></a>
+	<h2><span>Proposals for contributed talks (sorted by science theme)</span></h2>
+	<div class="c12 row">
+        {% for t in talks %}
+	{{ abstracts.single_abstract_any_type(t) }}
+	{% endfor %}
+	</div>
+	{% endif %}
+	
+      <a name="posters"></a>
+      <h2><span>proposed haiku's + Poster (sorted by science theme)</span></h2>
+      <div class="c12 row">
+	{% if posters|count == 0 %}
+	<p>Posters will be listed here after the SOC has reviewed the submitted abstracts.</p>
+	{% else %}
+	<p> Poster + haiku listed here. Deadline for normal posters (without haiku) is much later, thus posters are only listed here, if a haiku is requested.
+        {% for t in posters %}
+	{{ abstracts.single_abstract_any_type(t) }}
+	{% endfor %}
+	{% endif %}
+
+      </div>  
+      {% if unassigned|count > 0 %}
+      <a name="unassigned"></a>
+      <h2><span>Unassigned contributions</span></h2>
+      <div class="c12 row">
+        {% for t in unassigned %}
+	{{ abstracts.single_abstract_any_type(t) }}
+	{% endfor %}
+      </div>  
+	{% endif %}
+
+     <p></p>
+
+    </div>
+
 {% endblock content %}

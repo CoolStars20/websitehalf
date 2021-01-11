@@ -25,18 +25,20 @@
 
 {% macro single_abstract_any_type(t) -%}
 {{ talktitle(t) }}
-{% if ((t['type'] == 'invited') or (t['type'] == 'contributed')) %}
+{% if ((t['type'] == 'invited') or (t['type'] == 'contributed talk')) %}
     <p class="locationschedule">science theme: {{ t['Select a major science topic'] }}<br>
       <em>schedule: {{ t['day']|default('TBA', true) }}, {{
 	t['time']|default('TBA', true) }} {% if t['type'] == 'invited' %}
 	(invited) {% endif %}</em>{% if t['youtubelink']
 	%} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %} {%if
-	t['pdflink']%} | <a href={{t['pdflink']}}>slides (pdf)</a>{% endif %}</p>
+      t['pdflink']%} | <a href={{t['pdflink']}}>slides (pdf)</a>{% endif %}
+      <br>Row number in Google spreadsheet: {{ t['row'] }}</p>
 {% elif t['type'] == 'poster' %}
     <p class="locationschedule"> <em>poster number: {{ t['poster number']|default('TBA') }}</em></p>
 {% else %}
 <p class="locationschedule"> science theme: {{ t['Select a major science topic'] }}<br>
-  <em>scheduling information or poster number goes here</em></p>
+  <em>scheduling information or poster number goes here</em>
+  <br>Row number in Google spreadsheet: {{ t['row'] }}</p>
 {% endif %}
    {{ authoraffilabstract(t) }}
 {%- endmacro %}
