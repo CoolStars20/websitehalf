@@ -196,9 +196,11 @@ def data(**kwargs):
     ind_posterhaiku = abstr['Type of contribution'] == 'poster + haiku'
 
     talks = abstr[ind_talk]
-    talks.sort(['Select a major science topic', 'row'])
+    talks.sort(['topic', 'row'])
+    print(set(talks['topic']))
     posters = abstr[ind_posterhaiku]
-    posters.sort(['Select a major science topic', 'row'])
+    posters.sort(['topic', 'row'])
+    print(set(posters['topic']))
     #posters['intnumber'] = [int(i) for i in posters['poster number']]
     #posters.sort(['intnumber', 'Authors'])
 
@@ -210,9 +212,10 @@ def data(**kwargs):
     notype = abstr[~ind_talk & ~ind_posterhaiku]
 
     if len(notype) > 0:
-        print('The following entries do not have a valid "type" entry, which would classify them as talk or poster:')
+        #print('The following entries do not have a valid "type" entry, which would classify them as talk or poster:')
         for r in notype:
-            print(r['Timestamp'], r['type'], r['Title'])
+            pass
+            #print(r['Timestamp'], r['type'], r['Title'])
 
     if not kwargs['output_unassigned']:
         abstr = abstr[abstr['type'] != '']
