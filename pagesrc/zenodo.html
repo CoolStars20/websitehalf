@@ -1,0 +1,181 @@
+{% extends "templates/basic.html" %}
+{% set active_page = "None" %}
+{% block content %}
+<div class="container clearfix mt-100 mb-20">
+  {% include "templates/globalmessage.html" ignore missing %}
+  <h2><span>Posters, Haikus, and Proceedings are submitted to Zenodo.<span></h2>
+  <div class="c12 row">
+    <p><a href="https://zenodo.org/communities/coolstars20half/"
+      target="_blank">Posters, Haikus, and Proceedings for Cool Stars 20.5</a> will be
+      entirely electronic and freely available online. A collection of
+      participant contributions is made available
+      through <a href="https://zenodo.org">Zenodo</a>, an EU funded
+      data and project repository. All submissions must therefore be
+      made on Zenodo's webpage.</p>
+
+      <p>To facilitate accessibilty and
+      visibility, all contributions to the proceedings will indexed on
+      the <a href="https://ui.adsabs.harvard.edu/">ADS</a>.
+      <br/><br/>
+      Briefly, all submissions are assigned a Digital
+      Object Identifier (DOI) number by Zenodo,
+       <a href="https://zenodo.org/features">making contributions
+       citeable</a>. Once all contributions are received, ADS will be
+       notified, they will scrape the Zenodo collection, and then ADS
+       will index each of the contributions as part of a larger volume
+       (Proceedings for Cool Stars 20.5).  To ensure that all entries
+       are properly indexed, it is vital that each contribution
+       include appropriate metadata. In the tutorial below, you'll be
+       instructed about which metadata to include in your submission.
+       <br/><br/>
+       Submission to
+       the <a href="http://arxiv.org/">arXiv</a> in parallel with
+       submission to the conference proceedings is
+       encouraged. However, if you submit to the arXiv, you must make
+       sure to update the metadata in your Zenodo collection properly
+       so that it does not get listed twice in ADS.
+         </p>
+    <br/>
+
+        <h2><span>Types of contributions</span></h2>
+	<div class="c12 row">
+
+	  <h3>Haikus</h3>
+	  <p>If your contribution has been selected for a Haiku, you can submit a 1-min video in .mov or .mp3 format. <i>If your work has not been selected for a Haiku by the SOC, and you still try to upload a movie, we will reject your upload.</i></p>
+	  <h3>Posters</h3>
+	  <p>Upload one or two files and select "poster". One file is your poster as pdf. Optionally you can include a second file of type png, which we will use as thumbnail on the website, look at <a href="posters.html">the already uploaded posters</a> as examples.</p>
+	  <h3>Proceedings</h3>
+          <p> Contributions are accepted from invited plenary session
+	    reviews, contributed plenary session talks, haikus, and
+	    contributed posters. If you would like to submit a typical
+	    conference proceeding, there are no formal page
+	    limits. However for some guidance, we recommend you
+	    limit yourself to 4-8 pages for contributed talks and
+	    10-15 pages for invited talks. Those wishing to submit
+	    a written conference proceeding are encouraged to
+	    format the document using the <a href="https://github.com/CoolStars20/proceedings/archive/cs20.5.tar.gz">Cool Stars 20.5
+	      LaTeX document class</a>. All such submissions should be made as PDFs and will be reviewed for content by the SOC and we may suggest edits.
+	  </p>
+	  <p> Submission of presentation slides from speakers is encouraged. PDF versions of these documents are the preferred format for Zenodo contributions to permit the documents to be previewed in a web browser. For maximum impact, you can submit both, a written contribution and your presentation slidest. Contributions will be checked for the proper metadata.</p>
+	</div>
+
+	<h2><span>How to submit your contribution<span></h2>
+	<div class="c12 row">
+            <p>Submitting to Zenodo is rather simple, but it's important that all metadata be
+            properly included so that articles get properly indexed on ADS. Below is a series
+            of screenshots taking you through the submission process from start to finish.
+            <br/><br/>
+            <strong>Step 01:</strong> Follow the <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank"</a>link
+            to the submission page for Cool Stars 20.5</a>.
+            <br/><br/>
+            <strong>Step 02:</strong> you'll be presented with a login screen:
+            </p>
+			<img src="images/login.png" width="100%">
+            <br/><br/>
+            <p>If you have a Zenodo account, proceed to login. If you do not, you may login
+            using your GitHub or ORCID account, or you may create a new account using the "Sign Up"
+            button located at the bottom of the frame.
+            <br/><br/>
+            <strong>Step 03:</strong> Once you login, you'll be presented with an "Upload" screen:
+            </p>
+			<img src="images/upload.png" width="100%">
+            <br/><br/>
+            <p>Click the button to choose a
+            file on your local machine, or drag and drop a file
+			directly onto the screen.
+            <br/><br/>
+            <strong>Step 04:</strong> After you select one or more files where you will be
+            able to fill out a wide variety of file metadata on the
+			boxes below the upload box. Be sure that in
+			the "Communities" box you see "The 20th  (and a half)
+			Cambridge Workshop on Cool Stars, Stellar
+			Systems, and the Sun". If you do not see this,
+			start typing it into the search bar and it
+			will automatically pop up.
+            </p>
+			<img src="images/communities.png" width="100%">
+            <br/><br/>
+            <p><strong>Step 05:</strong> Now, start filling out information about your document. First, select the type of file you have
+              just uploaded:</p>
+	    <ul class="listing">
+	      <li><strong>Poster:</strong> Upload one or two files and select "poster". One file is your poster as pdf, optionally you can include a second file of type png, which we will use as thumbnail on the website.</li>
+	      <li><strong>Haiku:</strong> Select "video/audio".</li>
+	      <li><strong>Proceeding:</strong> Select "publication" and "Publication type: Conference paper" in the dropdown menu.
+	    </ul>
+	      <i>Ignore the DOI field, Zenodo will take care of this for you, unless you know
+            for a fact that the document you're upload already has an assigned DOI. If you are unsure,
+            then it likely does not already have a DOI.</i> Enter today's date for the publication date, if
+            it's not automatically done for you. Enter the title of your article/poster/talk.
+            <br/><br/>
+            Enter the name of each author and their affiliation. <strong>NOTE</strong> names should be formatted
+            as "Family Name, First name".
+            </p>
+			<img src="images/metadata.png" width="100%">
+            <br/><br/>
+            <p>You will be asked to fix this if you do not do it correctly the first time.
+            It's important for ADS that this be done properly. Continue to fill in the requeted
+            information, including the Description (i.e., Abstract).
+              <br/><br/>
+	      <p><strong>Step 06:</strong>Fill in keywords. You can have as many keywords as you like, but <strong>the first keyword should be one from the following list</strong> because we will sort posters by the value in the first keyword. Any poster that does not match one of the major science topics below will be listed as "other".</p>
+	      <ul class="listing">
+		<li>The Sun and the Heliosphere</li>
+		<li>Very low mass stars</li>
+		<li>Post main sequence cool stars</li>
+		<li>Young stars</li>
+		<li>Cool Stars on the main sequence</li>
+		<li>Stellar systems, clusters, and associations</li>
+	      </ul>
+
+	      <img src="images/keywords.png" width="100%">
+            <br/><br/>
+            <strong>Step 07:</strong> Choose access rights and a license for your work. You are
+            strongly encouraged to select Open Access and a permissive license so that people
+            can easily access your work.
+            </p>
+			<img src="images/license.png" width="100%">
+            <br/><br/>
+            <strong>Step 08-a:</strong> Optionally, you may specify funding information.
+            <br/><br/>
+            <strong>Step 08-b:</strong> If you submitted to the arXiv and/or your aricle was already indexed
+            to ADS, add the related identifying information so that Zenodo and ADS will link all of the
+            contributions into one neat little package.
+            </p>
+			<img src="images/ADSlink.png" width="100%">
+            <br/><br/>
+            <p>
+            <strong>Step 09:</strong> Open the "Contributors" section by clicking on it. Add "Wolk, Scott" as an editor. Again, note that the name must
+            be "Wolk, Scott". Select Editor from the dropdown menu.
+            </p>
+			<img src="images/contributors.png" width="100%">
+            <br/><br/>
+            <p>
+            <strong>Step 10:</strong> Given credit where credit is due! If you referenced various works
+            in your article, talk, or poster, give them credit by adding the reference information (yes,
+            citations will be counted on ADS, but ADS will only know about them if you enter the
+            information in the "References" section). See the image below about how to format the references:
+            </p>
+			<img src="images/references.png" width="100%">
+            <br/><br/>
+            <p>This is basically a copy-paste of a bibliography.
+            <br/><br/>
+            <strong>Step 11:</strong> Fill out information about the Workshop as shown below:
+            </p>
+			<img src="images/conference.png" width="100%">
+            <br/><br/>
+            <p>
+            <strong>Step 12:</strong> Review the information to make sure you've done everything
+            properly and then click "Publish"! Or, if you'd like save it
+			and publish later, click "Save"
+            </p>
+			<img src="images/publish.png" width="100%">
+            <br/><br/>
+            <p>
+            <strong>Step DONE:</strong> Congratulate yourself on a job well done.
+            </p>
+
+	    <h3>Acknowledgment</h3>
+	    <p>Thanks to the CS19 team that provided <a href="http://www.astro.uu.se/~cool19/proceedings/index.html">very detailed instructions for their proceedings</a>, which we adapted here for CS20.5.</p>
+</div>
+</div>
+
+{% endblock content %}

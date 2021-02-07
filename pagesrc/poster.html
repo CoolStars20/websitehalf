@@ -1,0 +1,40 @@
+{% extends "templates/basic.html" %}
+{% set active_page = "Posters" %}
+
+{% block content %}
+<div class="container clearfix mt-100 mb-20">
+  {% include "templates/globalmessage.html" ignore missing %}
+
+  <h2><span id="posters">Posters</span></h2>
+
+  {% for topic, plist in posters.items() %}
+  <div class="c12 row">
+    {% for topi in posters %}
+      |<a href="#{{ topi|replace(" ", "") }}">{{ topi }}</a>|
+    {% endfor %}
+  </div>
+  <h2><span id="{{ topic|replace(" ", "") }}">{{ topic }}</span></h2>
+  <div class="row">
+    {% for p in plist %}
+    <div class="c4 about">
+      <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">
+	<img src="{{ p['links']['thumbs']['250'] }}" alt="" />
+	</a>
+      <p class="name">{{ p['metadata']['creators'][0]['name'] }}</p>
+      <p class="position">{{ p['metadata']['title'] }}</p>
+      <p><a href="{{ p['links']['html'] }}" target="_blank">Zenodo</a>
+      <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">pdf</a></p>
+    </div>
+
+    {% endfor %}
+  </div>
+  {% endfor %}
+      <div class="clearfix"></div>
+     <h2 id='zenodo'><span>Zenodo</span></h2>
+      <div class="c12 row">
+	<p>The entire Zenodo collection for CS20.5 (including haikus and proceedings can be found at <a href="https://zenodo.org/communities/coolstars20half/">https://zenodo.org/communities/coolstars20half/</a></p>
+	</div>
+
+
+</div>
+{% endblock content %}
