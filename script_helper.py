@@ -3,6 +3,8 @@ import argparse
 parser = argparse.ArgumentParser(description='Generate webpages for CS20. We want to generate statics pages for simplicity, but might read in some database (e.g. the database of abstracts) when doing so.')
 parser.add_argument('outpath',
                     help='base directory for output')
+parser.add_argument('zenodoposter',
+                    help='json file with zenodo poster metadata')
 parser.add_argument('-a', '--abstracts',
                     #default='../data/abstracts.csv',
                     help='csv file with abstracts')
