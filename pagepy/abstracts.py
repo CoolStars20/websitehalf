@@ -215,4 +215,7 @@ def data(**kwargs):
     notype.sort(['Select a major science topic', 'Authors'])
     unass = notype if kwargs['output_unassigned'] else []
 
+    talks.sort("binary_time")
+    haikus.sort("binary_time")
+
     return {'talks': talks, 'posters': posters, 'haikus': haikus, 'unassigned': unass}

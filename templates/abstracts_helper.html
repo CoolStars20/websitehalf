@@ -14,7 +14,7 @@
 {%- endmacro %}
 
 {% macro authoraffilabstract(t) -%}
-<p><strong>{%- if t['Publish first author contact information?'] %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
+<p><strong>{%- if t['Publish contact information?'] %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
 {{ t['authorlist'][0] }}{%- if t['Publish contact information?']
       %}</a>{%- endif %}</strong>{%- for a in t['authorlist'][1:] %}; {{ a }}{%
   endfor %}{{ t['team'] }}<br>

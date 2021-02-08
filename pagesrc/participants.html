@@ -10,6 +10,7 @@
 
 <h2><span>Participants</span></h2>
 <div class="c12 row">
+  <p>(<abbr title="except where I'm not sure about `van`, `de`, or non-ASCII characters in names">approximately</abbr> alphaphabetical by last name)</p>
   <ul class="listing">
   {% for t in participants %}
   <li><strong>{%- if t['Publish contact information?']|length > 5  %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
