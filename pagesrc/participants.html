@@ -1,0 +1,23 @@
+{% extends "templates/basic.html" %}
+{% import "templates/abstracts_helper.html" as abstracts %}
+{% set active_page = "Participants" %}
+
+{% block content %}
+    <div class="container clearfix mt-100 mb-20">
+      {% include "templates/globalmessage.html" ignore missing %}
+      {% include "templates/timeline.html" ignore missing %}
+      <a name="top"></a>
+
+<h2><span>Participants</span></h2>
+<div class="c12 row">
+  <ul class="listing">
+  {% for t in participants %}
+  <li><strong>{%- if t['Publish contact information?']|length > 5  %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
+{{ t['Name'] }}{%- if t['Publish contact information?']|length > 5  %}</a>{%- endif %}</strong>{% if t['Affiliation']|length > 0 %} - {{ t['Affiliation'] }}{% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+</div>
+
+{% endblock content %}
