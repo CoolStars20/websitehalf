@@ -1,6 +1,7 @@
 {% macro talktitle(t) -%}
 <p class="rightlinks"><a href="#table">table</a>
   <a href="#talks">talks</a>
+  <a href="#haikus">haikus</a>
   <a href="#posters">posters</a>
 </p>
 <a name="{{ t['Title'] }}"></a>
@@ -28,8 +29,7 @@
 {% if t['accepted as'] in ['invited talk', 'contributed talk', 'haiku'] %}
     <p class="locationschedule">science theme: {{ t['Select a major science topic'] }}<br>
       <em>schedule: {{ t['day']|default('TBA', true) }}, {{
-	t['time']|default('TBA', true) }} {% if t['accepted as'] == 'invited talk' %}
-	(invited) {% endif %}</em>{% if t['youtubelink']
+	t['time']|default('TBA', true) }} ({{t['accepted as'] }})</em>{% if t['youtubelink']
 	%} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}{% if t['youtubelink']
 	%} | <a href={{t['zenodolink']}}>video (zenodo)</a>{% endif %} {%if
 	t['pdflink']%} | <a href={{t['pdflink']}}>slides (pdf)</a>{% endif %}</p>

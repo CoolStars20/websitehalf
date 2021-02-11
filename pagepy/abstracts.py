@@ -110,7 +110,7 @@ def process_google_form_value(tab, **kwargs):
 
     This function add new colums to a table ``tab``.
     '''
-    tab['authorlist'] = [a.split('\n') for a in tab['Authors']]
+    tab['authorlist'] = [a.replace(';', '\n').split('\n') for a in tab['Authors']]
     tab['First author'] = tab['Name']
     tab['affiliations'] = tab['Affiliations']
     tab['affiliations'] = [combine_affils(r) for r in tab['affiliations']]
@@ -143,16 +143,16 @@ def process_google_form_value(tab, **kwargs):
 
     # check it's a number otherwise sort will fail because string sorting will
     # give different answers
-    if not np.issubdtype(posters['poster number'].dtype, np.integer):
-        print('Poster numbers are not integers - they might be sorted randomly.')
-    # check that no two posters have the same number
-    unique_numbers, unique_counts = np.unique(posters['poster number'],
-                                              return_counts=True)
-    if (unique_counts > 1).sum() > 0:
-        print('The following poster numbers are used more than once:')
-        for i in (unique_counts > 1).nonzero()[0]:
-            print('{}  is assigned to {} posters'.format(unique_numbers[i],
-                                                         unique_counts[i]))
+    # if not np.issubdtype(posters['poster number'].dtype, np.integer):
+    #     print('Poster numbers are not integers - they might be sorted randomly.')
+    # # check that no two posters have the same number
+    # unique_numbers, unique_counts = np.unique(posters['poster number'],
+    #                                           return_counts=True)
+    # if (unique_counts > 1).sum() > 0:
+    #     print('The following poster numbers are used more than once:')
+    #     for i in (unique_counts > 1).nonzero()[0]:
+    #         print('{}  is assigned to {} posters'.format(unique_numbers[i],
+    #                                                      unique_counts[i]))
 
 
 def read_abstracts_table(filename, **kwargs):
@@ -184,7 +184,7 @@ def data(**kwargs):
 
 
     ind_talk = (abstr['accepted as'] == 'invited talk') | (abstr['accepted as'] == 'contributed talk')
-    ind_poster = (abstr['accepted as'] == 'poster') | (abstr['accepted as'] == 'haiku')
+    ind_poster = abstr['accepted as'] == 'poster'
     ind_haiku = abstr['accepted as'] == 'haiku'
     talks = abstr[ind_talk]
     talks.sort(['binary_time', 'accepted as', 'Select a major science topic'])
@@ -194,8 +194,8 @@ def data(**kwargs):
                  'Name'])
 
     posters = abstr[ind_poster]
-    posters['intnumber'] = [int(i) for i in posters['poster number']]
-    posters.sort(['intnumber', 'Authors'])
+    #posters['intnumber'] = [int(i) for i in posters['poster number']]
+    #posters.sort(['intnumber', 'Authors'])
 
 
     # List all entries that do not have a valid type
@@ -208,7 +208,7 @@ def data(**kwargs):
 
     if not kwargs['output_unassigned']:
         abstr = abstr[abstr['accepted as'] != '']
-    abstr.sort(['binary_time', 'poster number'])
+    abstr.sort(['binary_time', 'haiku number'])
     abstr['index'] = np.arange(1.0 * len(abstr))
     write_json_abstracts(abstr)
 
@@ -216,6 +216,6 @@ def data(**kwargs):
     unass = notype if kwargs['output_unassigned'] else []
 
     talks.sort("binary_time")
-    haikus.sort("binary_time")
+    haikus.sort(["binary_time", "haiku number"])
 
     return {'talks': talks, 'posters': posters, 'haikus': haikus, 'unassigned': unass}

@@ -32,7 +32,7 @@ processEscapes: true}
 	      <p>Abstracts for posters are added after the poster is <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank">uploaded to Zenodo</a> (<a href="zenodo.html">detailed instructions</a> - give us a few days after the upload to add the poster here).</p>
 
         <p>Use the table below to view and search abstracts or jump directly
-	  to a listing of all <a href="#talks">talks</a>, <a href="#haiku">haikus</a>, or <a href="#posters">posters</a>.
+	  to a listing of all <a href="#talks">talks</a>, <a href="#haikus">haikus</a>, or <a href="#posters">posters</a>.
 	</p>
 
 	<table id="example" class="display" width="100%" cellspacing="0">
@@ -80,8 +80,8 @@ processEscapes: true}
 	{% endfor %}
 	{% endif %}
 
-	<a name="haiku"></a>
-	<h2><span>Haikus</span></h2>
+	<a name="haikus"></a>
+	<h2><span>Haikus with posters</span></h2>
 	{% if haikus|count == 0 %}
       <div class="c12 row">
 	<p>Haikus will be listed here after the SOC has reviewed the
@@ -103,7 +103,7 @@ processEscapes: true}
 
 
       <a name="posters"></a>
-      <h2><span>Posters</span></h2>
+      <h2><span>Posters without haiku</span></h2>
       <p>Abstracts for posters are added after the poster is <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank">uploaded to Zenodo</a> (<a href="zenodo.html">detailed instructions</a> - give us a few days after the upload to add the poster here).</p>
       <div class="c12 row">
 	{% if posters|count == 0 %}
@@ -115,15 +115,6 @@ processEscapes: true}
 	{% endif %}
 
       </div>
-      {% if unassigned|count > 0 %}
-      <a name="unassigned"></a>
-      <h2><span>Unassigned contributions</span></h2>
-      <div class="c12 row">
-        {% for t in unassigned %}
-	{{ abstracts.single_abstract_any_type(t) }}
-	{% endfor %}
-      </div>
-	{% endif %}
 
      <p></p>
 
