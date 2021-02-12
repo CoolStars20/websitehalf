@@ -115,6 +115,7 @@
 	{% for day in ['Tuesday', 'Wednesday', 'Thursday'] %}
         <a name="talkson{{ day }}"></a>
 	<h3><span>Talks on {{ day }}</span></h3>
+	<p>Invited talks are 25 + 5 min, contributed talks 12 + 3 min. See above for the timing of haiku sessions and coffee breaks.</p>
 	<ul class="listing">
         {% for t in talks %}
 	{% if t['day'] == day[:3] %}
