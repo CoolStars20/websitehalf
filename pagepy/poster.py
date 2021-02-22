@@ -2,6 +2,7 @@ import json
 from fuzzywuzzy import process
 from astropy.table import Table
 
+
 def data(**kwargs):
     major_science_topics = [
         'Interactive Posters',
@@ -14,6 +15,7 @@ def data(**kwargs):
 
     posters = {m: [] for m in major_science_topics}
     posters['Other'] = []
+    posterlinks = []
 
     with open(kwargs['zenodoposter']) as f:
         zenodo = json.load(f)
@@ -27,6 +29,7 @@ def data(**kwargs):
                 topic = matched[0]
 
         posters[topic].append(h)
+        posterlinks.append(h['links']['html'])
 
     # Within each category, sort posters by creation time
     for v in posters.values():
@@ -35,5 +38,10 @@ def data(**kwargs):
     interactive = Table.read('data/interactive_poststers.csv',
                              format='ascii')
     posters['Interactive Posters'] = interactive
+    for row in interactive:
+        posterlinks.append(row['html'])
+
+    with open('data/posterlinks.json', 'w') as fp:
+        json.dump(posterlinks, fp)
 
     return {'posters': posters}
