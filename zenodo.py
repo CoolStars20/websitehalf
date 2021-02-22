@@ -6,7 +6,7 @@ import subprocess
 
 parser = argparse.ArgumentParser(description='Retrieve Poster meta data from CS20.5 community on zenodo')
 parser.add_argument('outfile',
-                    help='filname for json file with query results')
+                    help='filename for json file with query results')
 
 args = parser.parse_args()
 
@@ -18,12 +18,12 @@ response = requests.get('https://zenodo.org/api/records',
                                 'type': 'poster',
                                 'access_token': ACCESS_TOKEN})
 
-for h in response['hits']['hits']:
+for h in response.json()['hits']['hits']:
     if 'links' not in h:
         h['links'] = {}
     if 'thumbs' not in h['links']:
         h['links']['thumbs'] = {}
-    if ['250'] not in h['links']['thumbs']:
+    if '250' not in h['links']['thumbs']:
         newthumb = 'thumbs/{}.jpg'.format(h['conceptrecid'])
         h['links']['thumbs']['250'] = newthumb
         if not os.path.exists(newthumb):
@@ -35,7 +35,8 @@ for h in response['hits']['hits']:
                          f.write(r.content)
                     break
             params = ['convert',
-                      '-thumbnail 250x250 -background transparent -gravity center -extent 250x250',
+                      '-thumbnail', '250x250', '-background', 'transparent',
+                      '-gravity', 'center', '-extent', '250x250',
                       'dummy.pdf', newthumb]
             subprocess.check_call(params)
 

@@ -10,6 +10,12 @@
 
 <p>We currently have capacity for 48 posters at Wednesday’s session. (More can be added if demand is high) Poster slots are on a first-come basis. To request a poster slot <a href="mailto:jrad@uw.edu">email James Davenport</a> with a single JPEG version of your poster (3MB file size limit). You will be assigned a poster room and poster #. During the Poster Session (Wednesday) you should stand by or near your poster just like you would at a normal conference.</p>
 
+<h2 id='zenodo'><span>View all posters at Zenodo!</span></h2>
+      <div class="c12 row">
+	<p>The entire Zenodo collection for CS20.5 (including haikus and proceedings can be found at <a href="https://zenodo.org/communities/coolstars20half/">https://zenodo.org/communities/coolstars20half/</a></p>
+
+	</div>
+
 
 {% for topic, plist in posters.items() %}
 <div class="clearfix"></div>
@@ -19,20 +25,30 @@
     {% endfor %}
   </div>
   <h2><span id="{{ topic|replace(" ", "") }}">{{ topic }}</span></h2>
-  <div class="row">
+
+    {% if topic == "Interactive Posters" %}
+    <div class="c12 row">
+      <p>This is a collection of posters that are not pdf's but have interactive features (graphics you can zoom into, select data points, see animations, etc.</p>
+    </div>
+    {% endif %}
+      <div class="row">
     {% for p in plist %}
     <div class="c4 about">
       {% if topic == "Interactive Posters" %}
       <a href="{{ p['html'] }}" target="_blank">
 	<img src="posters/{{ p['thumb'] }}" alt="" />
-	</a>
+      </a>
       <p class="name">{{ p['name'] }}</p>
       <p class="position">{{ p['title'] }}</p>
       <p><a href="{{ p['html'] }}" target="_blank">open interactive poster</a></p>
       {% else %}
       <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">
+	{% if 'thumbs' in p['links'] %}
 	<img src="{{ p['links']['thumbs']['250'] }}" alt="" />
-	</a>
+	{% else %}
+	<img src="thumbs/{{ p['conceptrecid'] }}.jpg" alt="" />
+	{% endif %}
+      </a>
       <p class="name">{{ p['metadata']['creators'][0]['name'] }}</p>
       <p class="position">{{ p['metadata']['title'] }}</p>
       <p><a href="{{ p['links']['html'] }}" target="_blank">Zenodo</a>
@@ -43,10 +59,11 @@
     {% endfor %}
   </div>
   {% endfor %}
-      <div class="clearfix"></div>
-     <h2 id='zenodo'><span>Zenodo</span></h2>
+  <div class="clearfix"></div>
+<h2 id='zenodo'><span>View all posters at Zenodo!</span></h2>
       <div class="c12 row">
 	<p>The entire Zenodo collection for CS20.5 (including haikus and proceedings can be found at <a href="https://zenodo.org/communities/coolstars20half/">https://zenodo.org/communities/coolstars20half/</a></p>
+
 	</div>
 
 
