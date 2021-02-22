@@ -3,6 +3,7 @@ from datetime import datetime
 import numpy as np
 import csv
 from astropy.table import Table, Column, join
+from pagepy.poster import data as posterdata
 
 dates = {'': [2021, 8, 28],  # Posters don't have a date. They should be displayed last.
          'Tue': [2021, 3, 2],
@@ -217,5 +218,6 @@ def data(**kwargs):
 
     talks.sort("binary_time")
     haikus.sort(["binary_time", "haiku number"])
+
 
     return {'talks': talks, 'posters': posters, 'haikus': haikus, 'unassigned': unass}

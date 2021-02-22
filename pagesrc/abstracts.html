@@ -20,9 +20,9 @@ processEscapes: true}
       {% include "templates/timeline.html" ignore missing %}
       <a name="top"></a>
       <div class="c12 row">
-	<p>Jump to <a href="#table">table of all accepted contributions</a>,
-	  <a href="#talks">accepted talks</a>, or
-	  <a href="#posters">accepted posters</a>.
+	<p>Jump to <a href="#table">table of all oral contributions</a>,
+	  <a href="#talks">talks</a>, <a href="#haikus">haikus</a>, or
+	  <a href="poster.html">posters</a>.
 	</p>
       </div>
 
@@ -32,7 +32,7 @@ processEscapes: true}
 	      <p>Abstracts for posters are added after the poster is <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank">uploaded to Zenodo</a> (<a href="zenodo.html">detailed instructions</a> - give us a few days after the upload to add the poster here).</p>
 
         <p>Use the table below to view and search abstracts or jump directly
-	  to a listing of all <a href="#talks">talks</a>, <a href="#haikus">haikus</a>, or <a href="#posters">posters</a>.
+	  to a listing of all <a href="#talks">talks</a>, <a href="#haikus">haikus</a>, or <a href="poster.html">posters</a>.
 	</p>
 
 	<table id="example" class="display" width="100%" cellspacing="0">
@@ -104,19 +104,7 @@ processEscapes: true}
 
       <a name="posters"></a>
       <h2><span>Posters without haiku</span></h2>
-      <p>Abstracts for posters are added after the poster is <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank">uploaded to Zenodo</a> (<a href="zenodo.html">detailed instructions</a> - give us a few days after the upload to add the poster here).</p>
-      <div class="c12 row">
-	{% if posters|count == 0 %}
-	<p>Posters will be listed here after the SOC has reviewed the submitted abstracts.</p>
-	{% else %}
-        {% for t in posters %}
-	{{ abstracts.single_abstract_any_type(t) }}
-	{% endfor %}
-	{% endif %}
-
-      </div>
-
-     <p></p>
+      <p>Posters are listed on <a href='poster.html'>the poster page</a> (with images like on a poster board) and on <a href='https://zenodo.org/communities/coolstars20half/'>zenodo</a> (in list form).</p>
 
     </div>
 
