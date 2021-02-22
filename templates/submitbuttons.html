@@ -12,7 +12,7 @@
     var randomIndex = Math.floor(Math.random() * data.length);
 
     // resolve with random URL
-    def.resolve( data[ randomIndex ] );
+    window.open( data[ randomIndex ] );
 
   }).fail( function( error ){
 
@@ -21,23 +21,7 @@
   });
 
   return def;
-}
-
-$(document).ready( function(){
-  getRandomUrl().done(function(url){
-
-    // button click code
-    var buttonClickCode = "window.location.href = '" + url + "'";
-
-    // button click handler
-    $('#randomLinkButton').attr('onClick', buttonClickCode)
-
-  }).fail(function(){
-
-    // failed
-  });
-
-});
+ }
 </script>
 
 <div class="c12 row">
@@ -45,6 +29,6 @@ $(document).ready( function(){
     <a href="contributions.html" class="button">Register</a>
     <a href="zenodo.html" class="button">Upload instructions</a>
     <a href="https://zenodo.org/deposit/new?c=coolstars20half" target="_blank" class="button">Upload poster / haiku</a>
-    <a id="randomLinkButton" href="#" class='button' target="_blank">View random poster</a>
+    <a id="randomLinkButton" class='button' onclick="getRandomUrl()">View random poster</a>
   </p>
 </div>
