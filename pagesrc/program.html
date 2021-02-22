@@ -106,16 +106,19 @@
 	    <td class="time">22:00-23:00</td>
 	    <td class="time">21:00-22:00</td>
 	    <td class="time">16:00-17:00</td>
-	    <td class="splinter"><a href="">Topical interest room 1, 2, 3</a></td>
-	    <td class="splinter"><a href="">Topical interest room 4, 5, 6</a></td>
+	    <td class="splinter"><a href="">Topical interest room 1, 2, 3 / social meeting</a></td>
+	    <td class="splinter"><a href="">Topical interest room 4, 5, 6 / poster session</a></td>
 	    <td class="splinter"><a href="">Topical interest room 7, 8, 9</a></td>
 	  </tr>
 </table>
     <p>Small changes in scheduling could still happen. Check back here.</p>
+
+    <h3>Social meeting / poster session</h3>
+      <p>We will host a virtual Social Hour (Tuesday), and a virtual Poster Session (Wednesday) during the Topical Interest Room times (4-5PM EST). These events will be hosted using Gather.Town, a virtual environment that runs in your web browser with a 90’s video game feel. The link to join will be circulated to registered attendees. Gather.Town allows attendees to walk around, play games, and video chat with those nearby. We’ve found this platform is fun, easy to use, and helps capture some of the magic of “bumping into colleagues” that we all miss! See <a href="poster.html">the poster page</a> for details on the poster session.</p>
 	{% for day in ['Tuesday', 'Wednesday', 'Thursday'] %}
         <a name="talkson{{ day }}"></a>
 	<h3><span>Talks on {{ day }}</span></h3>
-	<p>Invited talks are 25 + 5 min, contributed talks 12 + 3 min. See above for the timing of haiku sessions and coffee breaks.</p>
+	<p>Invited talks are 24 + 6 min, contributed talks 12 + 3 min. See above for the timing of haiku sessions and coffee breaks.</p>
 	<ul class="listing">
         {% for t in talks %}
 	{% if t['day'] == day[:3] %}

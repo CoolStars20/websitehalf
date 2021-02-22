@@ -6,8 +6,13 @@
   {% include "templates/globalmessage.html" ignore missing %}
 
   <h2><span id="posters">Posters</span></h2>
+  <p>We will host a virtual Social Hour (Tuesday), and a virtual Poster Session (Wednesday) during the Topical Interest Room times (4-5PM EST). These events will be hosted using Gather.Town, a virtual environment that runs in your web browser with a 90’s video game feel. The link to join will be circulated to registered attendees. Gather.Town allows attendees to walk around, play games, and video chat with those nearby. We’ve found this platform is fun, easy to use, and helps capture some of the magic of “bumping into colleagues” that we all miss!</p>
 
-  {% for topic, plist in posters.items() %}
+<p>We currently have capacity for 48 posters at Wednesday’s session. (More can be added if demand is high) Poster slots are on a first-come basis. To request a poster slot <a href="mailto:jrad@uw.edu">email James Davenport</a> with a single JPEG version of your poster (3MB file size limit). You will be assigned a poster room and poster #. During the Poster Session (Wednesday) you should stand by or near your poster just like you would at a normal conference.</p>
+
+
+{% for topic, plist in posters.items() %}
+<div class="clearfix"></div>
   <div class="c12 row">
     {% for topi in posters %}
       |<a href="#{{ topi|replace(" ", "") }}">{{ topi }}</a>|
@@ -17,13 +22,22 @@
   <div class="row">
     {% for p in plist %}
     <div class="c4 about">
+      {% if topic == "Interactive Posters" %}
+      <a href="{{ p['html'] }}" target="_blank">
+	<img src="posters/{{ p['thumb'] }}" alt="" />
+	</a>
+      <p class="name">{{ p['name'] }}</p>
+      <p class="position">{{ p['title'] }}</p>
+      <p><a href="{{ p['html'] }}" target="_blank">open interactive poster</a></p>
+      {% else %}
       <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">
 	<img src="{{ p['links']['thumbs']['250'] }}" alt="" />
 	</a>
       <p class="name">{{ p['metadata']['creators'][0]['name'] }}</p>
       <p class="position">{{ p['metadata']['title'] }}</p>
       <p><a href="{{ p['links']['html'] }}" target="_blank">Zenodo</a>
-      <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">pdf</a></p>
+	<a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">pdf</a></p>
+      {% endif %}
     </div>
 
     {% endfor %}

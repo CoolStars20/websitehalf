@@ -1,9 +1,10 @@
 import json
 from fuzzywuzzy import process
-
+from astropy.table import Table
 
 def data(**kwargs):
     major_science_topics = [
+        'Interactive Posters',
         'The Sun and the Heliosphere',
         'Very low mass stars',
         'Post main sequence cool stars',
@@ -30,5 +31,9 @@ def data(**kwargs):
     # Within each category, sort posters by creation time
     for v in posters.values():
         v.sort(key=lambda h: h['created'])
+
+    interactive = Table.read('data/interactive_poststers.csv',
+                             format='ascii')
+    posters['Interactive Posters'] = interactive
 
     return {'posters': posters}
