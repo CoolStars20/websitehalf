@@ -21,15 +21,23 @@ def data(**kwargs):
         zenodo = json.load(f)
 
     for h in zenodo['hits']['hits']:
-        keylist = h['metadata']['keywords']
         topic = 'Other'
-        for k in reversed(keylist):
-            matched = process.extractOne(k, major_science_topics)
-            if matched[1] > 95:
-                topic = matched[0]
+        # If they did not set any keywords, we'll just put it in "other"
+        if 'keywords' in h['metadata']:
+            keylist = h['metadata']['keywords']
 
-        posters[topic].append(h)
-        posterlinks.append(h['links']['html'])
+            for k in reversed(keylist):
+                matched = process.extractOne(k, major_science_topics)
+                if matched[1] > 95:
+                    topic = matched[0]
+
+        for f in h['files']:
+            # Check if there is at least one pdf
+            # if not, this might be a haiku upload
+            if f['type'] == 'pdf':
+                posters[topic].append(h)
+                posterlinks.append(h['links']['html'])
+                break
 
     # Within each category, sort posters by creation time
     for v in posters.values():

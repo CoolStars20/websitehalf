@@ -15,7 +15,8 @@ with open('../zenodotoken.txt') as f:
 
 response = requests.get('https://zenodo.org/api/records',
                         params={'communities': 'coolstars20half',
-                                'type': 'poster',
+                                #'type': 'poster',
+                                'size': 1000,
                                 'access_token': ACCESS_TOKEN})
 
 for h in response.json()['hits']['hits']:
