@@ -20,7 +20,8 @@ def data(**kwargs):
     with open(kwargs['zenodoposter']) as f:
         zenodo = json.load(f)
 
-    for h in zenodo['hits']['hits']:
+    print(len(zenodo['hits']['hits']))
+    for i, h in enumerate(zenodo['hits']['hits']):
         topic = 'Other'
         # If they did not set any keywords, we'll just put it in "other"
         if 'keywords' in h['metadata']:
@@ -38,6 +39,8 @@ def data(**kwargs):
                 posters[topic].append(h)
                 posterlinks.append(h['links']['html'])
                 break
+        else:
+            print(h)
 
     # Within each category, sort posters by creation time
     for v in posters.values():
@@ -51,5 +54,7 @@ def data(**kwargs):
 
     with open('data/posterlinks.json', 'w') as fp:
         json.dump(posterlinks, fp)
+
+    print(len(posterlinks))
 
     return {'posters': posters}

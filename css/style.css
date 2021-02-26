@@ -149,7 +149,8 @@ h3 {color:#dc932c;font-weight:400;}
 .portfolio-thumb {text-align:center;position:relative;padding:0;}
 .portfolio-thumb img {padding:5px;display:block;margin:0 auto;height:100%;width:100%;}
 
-.about img {display:block;margin:0 auto;}
+.about img {display:block;margin:0 auto; max-height: 250px}
+.poster {display:block;height:450px; overflow:hidden;}
 .name {color:#dc932c;font-size:1.143em;font-weight:600;margin:0;}
 .position {margin:0 0 20px;}
 .listing {margin: 15px;}

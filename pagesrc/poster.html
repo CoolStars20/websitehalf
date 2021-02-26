@@ -33,7 +33,7 @@
     {% endif %}
       <div class="row">
     {% for p in plist %}
-    <div class="c4 about">
+    <div class="c4 about poster">
       {% if topic == "Interactive Posters" %}
       <a href="{{ p['html'] }}" target="_blank">
 	<img src="posters/{{ p['thumb'] }}" alt="" />
@@ -43,7 +43,9 @@
       <p><a href="{{ p['html'] }}" target="_blank">open interactive poster</a></p>
       {% else %}
       <a href="{{ (p['files']|selectattr('type', '==', 'pdf')|first)['links']['self'] }}" target="_blank">
-	{% if 'thumbs' in p['links'] %}
+	{% if 'thumb250' in p['links'] %}
+	<img src="{{ p['links']['thumb250'] }}" alt="" />
+	{% elif 'thumbs' in p['links'] %}
 	<img src="{{ p['links']['thumbs']['250'] }}" alt="" />
 	{% else %}
 	<img src="thumbs/{{ p['conceptrecid'] }}.jpg" alt="" />
