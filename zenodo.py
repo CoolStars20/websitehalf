@@ -28,9 +28,10 @@ for h in response.json()['hits']['hits']:
         newthumb = 'thumbs/{}.jpg'.format(h['conceptrecid'])
         h['links']['thumbs']['250'] = newthumb
         if not os.path.exists(newthumb):
+            print('building preview')
             for f in h['files']:
                 if f['type'] == 'pdf':
-                    r = requests.get(h['files'][0]['links']['self'],
+                    r = requests.get(f['links']['self'],
                                      params={'access_token': ACCESS_TOKEN})
                     with open("dummy.pdf", 'wb') as f:
                          f.write(r.content)

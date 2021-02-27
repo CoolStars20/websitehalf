@@ -40,7 +40,8 @@ def data(**kwargs):
                 posterlinks.append(h['links']['html'])
                 break
         else:
-            print(h)
+            pass
+            # print(h)
 
     # Within each category, sort posters by creation time
     for v in posters.values():
