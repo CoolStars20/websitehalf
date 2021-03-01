@@ -22,25 +22,30 @@ def data(**kwargs):
 
     print(len(zenodo['hits']['hits']))
     for i, h in enumerate(zenodo['hits']['hits']):
-        topic = 'Other'
-        # If they did not set any keywords, we'll just put it in "other"
-        if 'keywords' in h['metadata']:
-            keylist = h['metadata']['keywords']
-
-            for k in reversed(keylist):
-                matched = process.extractOne(k, major_science_topics)
-                if matched[1] > 95:
-                    topic = matched[0]
-
-        for f in h['files']:
-            # Check if there is at least one pdf
-            # if not, this might be a haiku upload
-            if f['type'] == 'pdf':
-                posters[topic].append(h)
-                posterlinks.append(h['links']['html'])
-                break
+        # print(h['conceptrecid'])
+        # hardcode list of things ot skip, e.g. talks that ended up in here
+        if h['conceptrecid'] in ['4567430', '4566959']:
+            print('skipping', h['conceptrecid'])
         else:
-            pass
+            topic = 'Other'
+            # If they did not set any keywords, we'll just put it in "other"
+            if 'keywords' in h['metadata']:
+                keylist = h['metadata']['keywords']
+
+                for k in reversed(keylist):
+                    matched = process.extractOne(k, major_science_topics)
+                    if matched[1] > 95:
+                        topic = matched[0]
+
+            for f in h['files']:
+                # Check if there is at least one pdf
+                # if not, this might be a haiku upload
+                if f['type'] == 'pdf':
+                    posters[topic].append(h)
+                    posterlinks.append(h['links']['html'])
+                    break
+            else:
+                pass
             # print(h)
 
     # Within each category, sort posters by creation time
