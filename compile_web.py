@@ -70,7 +70,10 @@ if not os.path.exists(outdir):
     os.makedirs(outdir)
 shutil.copy('data/abstracts.json', outdir)
 shutil.copy('data/posterlinks.json', outdir)
-
+shutil.copy('data/cs20_map.html', outdir)
+shutil.copy('data/participant_map.html', outdir)
+shutil.copy('data/cs20_countries.png', outdir)
+shutil.copy('data/cs205_countries.png', outdir)
 # copy favicons which should live in root directory
 filelist = glob(os.path.join('favicon', '*'))
 for f in filelist:

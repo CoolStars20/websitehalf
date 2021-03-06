@@ -8,7 +8,7 @@
   <h2><span>Schedule</span></h2>
   <div class="c12 row">
     <h3>Overview</h3>
-    <p>Daily synchronous sessions via a Zoom webinar. These sessions will be 3 - 4 hours long (with breaks), and will be held from ~17:00 to 20:00/21:00 UTC. The webinars will be recorded, and uploaded to Youtube.</p>
+    <p>Daily synchronous sessions via a Zoom webinar. These sessions will be 3 - 4 hours long (with breaks), and will be held from ~17:00 to 20:00/21:00 UTC. The webinars will be recorded, and uploaded to <a href="https://www.youtube.com/channel/UCb5YV1cMVuvl2SIu33G02rg"> the Cool Stars 20 Youtube channel</a> after the conference is over.</p>
 
 <table class="schedule" border="2">
   <tr class="title">
@@ -132,6 +132,20 @@
 	{% for day in ['Tuesday', 'Wednesday', 'Thursday'] %}
         <a name="haikuson{{ day }}"></a>
 	<h3><span>Haikus on {{ day }}</span></h3>
+    <p>
+      {% if day == 'Tuesday' %}
+      <a href="https://www.youtube.com/watch?v=3EWqDmEW3aY" target="_blank">youtube haiku session 1</a> |
+      <a href="https://www.youtube.com/watch?v=vlYun1KelTA" target="_blank">youtube haiku session 2</a>
+      {% endif %}
+      {% if day == 'Wednesday' %}
+      <a href="https://www.youtube.com/watch?v=uRXDC-zuPU8" target="_blank">youtube haiku session 3</a> |
+      <a href="https://www.youtube.com/watch?v=GGzorM5uX2Q" target="_blank">youtube haiku session 4</a>
+      {% endif %}
+          {% if day == 'Thursday' %}
+      <a href="https://www.youtube.com/watch?v=gAtKgVwRMPU" target="_blank">youtube haiku session 5</a> |
+      <a href="https://www.youtube.com/watch?v=nU8xh7N8Emw" target="_blank">youtube haiku session 6</a>
+      {% endif %}
+    </p>
 		<ul class="listing">
         {% for t in haikus %}
 	{% if t['day'] == day[:3] %}
@@ -161,7 +175,8 @@
     <li>What do we know about accretion from X-ray, UV, and optical data?</li>
 	</ul>
 
-<h4>Solar/Stellar Cycles - Discussion led by Kosovichev, Lehmann and Jeffers</h4>
+	<h4>Solar/Stellar Cycles - Discussion led by Kosovichev, Lehmann and Jeffers</h4>
+	<p>Recording on <a href="https://www.youtube.com/watch?v=0sMHjnuZ-Z8" target="_blank">youtube</a></p>
 	<ul class="listing">
      <li>How does study of the Sun-as-a-star inform us about dynamics and activity?</li>
      <li>What are the common characteristics for stars showing solar-like or non solar-like activity cycles?</li>
@@ -169,7 +184,8 @@
      <li>Are the historical active and inactive branches just an effect of stellar rotation where the active branch stars are fast rotators?</li>
      </ul>
 
-<h4>Brown Dwarf Modeling - Discussion led by Rickman</h4>
+	<h4>Brown Dwarf Modeling - Discussion led by Rickman</h4>
+	<p>Recording on <a href="https://www.youtube.com/watch?v=kkGU7B6w2Co" target="_blank">youtube</a></p>
 	<ul class="listing">
      <li>What discrepancies exist between observed atmospheric spectra and models of brown dwarfs?</li>
      <li>What observations are required going forward to eliminate or address discrepancies between observed atmospheric spectra and models?</li>
@@ -182,9 +198,9 @@
 	<h3><span>Wednesday</span></h3>
 	<h4>Job Fair - Discussion led by Wolk</h4>
 
-    <p>This is for people with open positions to describe them
-    additional conversations suggested in slack
-    If any one has a job to offer Let us know by email to <a href="mailto:cs20@cfa.harvard.edu">cs20@cfa.harvard.edu</a>.</p>
+    <p>This is for people with open positions to describe them.
+We suggest dditional conversations in slack.
+    If any one has a job to offer, let us know by email to <a href="mailto:cs20@cfa.harvard.edu">cs20@cfa.harvard.edu</a>.</p>
 
 <h4>Ready to revive the radio star? Toward SKA/ngVLA - Discussion led by Forbrich</h4>
 	<ul class="listing">
@@ -194,7 +210,7 @@
      vWhat is the current outlook for SKA and ngVLA, and what preparatory theory/simulation work is needed?</li>
 </ul>
 
-<h4>Solar/Stellar Hydrodynamics/MHD simulation. - Discussion led by Pratt and Brun</h4>
+<h4>Solar/Stellar Hydrodynamics/MHD simulation. - Discussion led by Pratt</h4>
 	<ul class="listing">
      <li>What are the present limitations in simulating cool stars?</li>
      <li>How does a star's effective temperature impact on these limitations?</li>
@@ -219,7 +235,7 @@
 <li>How do stellar activity influence (exo)-planetary atmospheres over evolutionary timescales?</li>
 </ul>
 
-<h4>Evolved Cool stars -led by Humphreys and Creech-Eakman</h4>
+<h4>Evolved Cool stars - Discussion led by Humphreys and Creech-Eakman</h4>
 	<ul class="listing">
      <li>Origin of mass loss in red supergiants</li>
      <li>Evidence for Surface and Convective Activity</li>

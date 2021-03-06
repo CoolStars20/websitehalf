@@ -8,8 +8,16 @@
       {% include "templates/timeline.html" ignore missing %}
       <a name="top"></a>
 
-<h2><span>Participants</span></h2>
-<div class="c12 row">
+      <h2><span>Participants</span></h2>
+      <div class="c12 row">
+	<iframe src="data/participant_map.html"  width="100%" height="400" title="World map with participant affiliations marked"></iframe>
+      </div>
+      <div class="c12 row">
+	<p>Map with participants home institutions marked. Matching is done through automated query of bing maps and may not be correct in all cases (e.g. two participants listed their affiliation as "astronom", which gets mapped to <a href="https://www.bing.com/maps?osid=7851477a-c4f9-4cce-9af2-2f51fa2b695b&cp=54.93655~8.867011&lvl=20&v=2&sV=2&form=S00027">an address in Denmark</a>). Participants who did not provide an affiliation are located based on their email address (e.g. an address ending on ".de" will place a marker somewhere in Germany).</p>
+</div>
+
+      <div class="c12 row">
+	<h3>Approximately alphabetical listing</h3>
   <p>This list it updated manually from the registration form, so it might take a day or two until your name is added.</p>
   <p>(<abbr title="except where I'm not sure about `van`, `de`, or non-ASCII characters in names">approximately</abbr> alphaphabetical by last name)</p>
   <ul class="listing">

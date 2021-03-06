@@ -24,7 +24,7 @@ def data(**kwargs):
     for i, h in enumerate(zenodo['hits']['hits']):
         # print(h['conceptrecid'])
         # hardcode list of things ot skip, e.g. talks that ended up in here
-        if h['conceptrecid'] in ['4567430', '4566959']:
+        if h['conceptrecid'] in ['4567430', '4566959', '4574202']:
             print('skipping', h['conceptrecid'])
         else:
             topic = 'Other'
