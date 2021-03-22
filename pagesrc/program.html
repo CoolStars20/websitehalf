@@ -123,7 +123,9 @@
         {% for t in talks %}
 	{% if t['day'] == day[:3] %}
 	  <li>{{ t['time'] }} (EST): <strong>{%- if t['Publish contact information?'] %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
-		{{ t['Name'] }}{%- if t['Publish contact information?'] %}</a>{%- endif %}</strong> {%- if t['accepted as'] == 'invited talk' %} <i>(invited)</i>{% endif %} <a href="abstracts.html#{{ t['Title'] }}">{{ t['Title'] }}</a></li>
+		{{ t['Name'] }}{%- if t['Publish contact information?'] %}</a>{%- endif %}</strong> {%- if t['accepted as'] == 'invited talk' %} <i>(invited)</i>{% endif %} <a href="abstracts.html#{{ t['Title'] }}">{{ t['Title'] }}</a>
+	    {% if t['youtubelink'] %} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}
+	  </li>
 	  {% endif %}
 	{% endfor %}
 	</ul>

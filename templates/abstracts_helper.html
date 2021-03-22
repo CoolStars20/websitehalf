@@ -30,7 +30,8 @@
     <p class="locationschedule">science theme: {{ t['Select a major science topic'] }}<br>
       <em>schedule: {{ t['day']|default('TBA', true) }}, {{
 	t['time']|default('TBA', true) }} ({{t['accepted as'] }})</em>{% if t['youtubelink']
-	%} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}{% if t['youtubelink']
+      %} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}
+      {% if t['zenodolink']
 	%} | <a href={{t['zenodolink']}}>video (zenodo)</a>{% endif %} {%if
 	t['pdflink']%} | <a href={{t['pdflink']}}>slides (pdf)</a>{% endif %}</p>
 {% elif t['accepted as'] == 'poster' %}
