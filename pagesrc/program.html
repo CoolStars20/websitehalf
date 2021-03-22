@@ -124,7 +124,8 @@
 	{% if t['day'] == day[:3] %}
 	  <li>{{ t['time'] }} (EST): <strong>{%- if t['Publish contact information?'] %}<a href='mailto:{{ t['Email Address'] }}'>{% endif %}
 		{{ t['Name'] }}{%- if t['Publish contact information?'] %}</a>{%- endif %}</strong> {%- if t['accepted as'] == 'invited talk' %} <i>(invited)</i>{% endif %} <a href="abstracts.html#{{ t['Title'] }}">{{ t['Title'] }}</a>
-	    {% if t['youtubelink'] %} | <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}
+	    {% if t['youtubelink'] %} | {% if t['youtubelink']=='--' %} (not recorded by mistake) {% else %}
+ <a href={{t['youtubelink']}}>video (youtube)</a>{% endif %}{% endif %}
 	  </li>
 	  {% endif %}
 	{% endfor %}
